@@ -4,10 +4,47 @@ console.log('***** Cart Functions *****');
 
 let basket = [];
 
+// function addItem(item) {
+//     basket.push(item);
+//     return true
+// } 
+
+function listItems() {
+    for (let i=0; i<basket.length; i++) {
+        console.log(basket[i]);
+    }
+}
+
+function empty() {
+    basket.length = 0;
+
+}
+
+const maxItems = 5
+
+function isFull() {
+    if (basket.length < maxItems) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 function addItem(item) {
-    basket.push(item);
-    return true
-} 
+    if (!isFull()) {
+        basket.push(item);
+        return true;
+    }
+    return false;
+}
+
+function removeItem(item) {
+    const index = basket.indexOf(item);
+    if (index !== -1) {
+        return basket.splice(index, 1)[0];
+    }
+    return null;
+}
 
 
 
